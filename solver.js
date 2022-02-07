@@ -1,7 +1,11 @@
 let words = require("./five-letter-words.json").fiveLetterWords;
 let dictionary = require("./dictionary.json");
-const definitions = [];
 const answer = "aloof";
+const showDefinitions = false;
+const showGuesses = true;
+
+const definitions = [];
+const allGuesses = [];
 
 function logIfAnswer(message, guess) {
 	if (guess === answer || !guess) {
@@ -105,19 +109,26 @@ let legend = [-1, -1, -1, -1, -1];
 let tryCount = 1;
 
 console.log("Starting game, solving for: " + answer + "\n");
+
 while (!legend.every((i) => i === 0) && tryCount < 100 && words.length) {
 	let bestGuess = randomWord();
+	allGuesses.push(bestGuess);
 	legend = getAccuracy(bestGuess, answer);
 
 	const definition = dictionary[bestGuess]
 		? `${bestGuess}: ${dictionary[bestGuess]}` + "\n"
 		: "";
 	definitions.push(definition);
-	console.log(
-		`${getAccuracy(bestGuess, answer)
-			.map((i) => formatOutput(i))
-			.join(" ")} '${bestGuess}' guessed from a possible ${words.length} words`
-	);
+
+	if (showGuesses) {
+		console.log(
+			`${getAccuracy(bestGuess, answer)
+				.map((i) => formatOutput(i))
+				.join(" ")} '${bestGuess}' guessed from a possible ${
+				words.length
+			} words`
+		);
+	}
 
 	words = words.filter((f) => matches(bestGuess, f, legend) && f !== bestGuess);
 
@@ -131,10 +142,25 @@ if (isSolved(legend)) {
 	console.log(
 		`\nWORDLETRON solved this successfully after ${tryCount - 1} attempts!`
 	);
+	if (showDefinitions) {
+		console.log(
+			`\n\n\nWant to know what all those guessed words mean?:\n${definitions.join(
+				"\n--------------------------------------\n"
+			)}`
+		);
+	}
+
+	console.log(`Wordle score ${allGuesses.length}/6`);
+	allGuesses.forEach((g) => {
+		console.log(
+			getAccuracy(g, answer)
+				.map((i) => formatOutput(i))
+				.join(" ")
+		);
+	});
+
 	console.log(
-		`\n\n\nWant to know what all those guessed words mean?:\n${definitions.join(
-			"\n--------------------------------------\n"
-		)}`
+		`\nTry to beat Wordletron at https://www.powerlanguage.co.uk/wordle/`
 	);
 } else {
 	console.log(`\n Failed  after ${tryCount - 1} attempts!`);
