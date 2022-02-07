@@ -1,10 +1,10 @@
 let words = require("./five-letter-words.json").fiveLetterWords;
 let dictionary = require("./dictionary.json");
 const definitions = [];
-const answer = "elder";
+const answer = "aloof";
 
 function logIfAnswer(message, guess) {
-	if (guess === "elder" || !guess) {
+	if (guess === answer || !guess) {
 		console.log(`${guess} : ${message}`);
 	}
 }
@@ -132,7 +132,7 @@ if (isSolved(legend)) {
 		`\nWORDLETRON solved this successfully after ${tryCount - 1} attempts!`
 	);
 	console.log(
-		`\nList of definitions:\n${definitions.join(
+		`\n\n\nWant to know what all those guessed words mean?:\n${definitions.join(
 			"\n--------------------------------------\n"
 		)}`
 	);
