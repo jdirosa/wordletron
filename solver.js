@@ -1,7 +1,7 @@
 let words = require("./five-letter-words.json").fiveLetterWords;
 let dictionary = require("./dictionary.json");
-const answer = "aloof";
-const showDefinitions = false;
+const answer = "frame";
+const showDefinitions = true;
 const showGuesses = true;
 
 const definitions = [];
@@ -108,7 +108,7 @@ function getAccuracy(guess, answer) {
 let legend = [-1, -1, -1, -1, -1];
 let tryCount = 1;
 
-console.log("Starting game, solving for: " + answer + "\n");
+console.log("Starting game, solving for: '" + answer.toUpperCase() + "'\n");
 
 while (!legend.every((i) => i === 0) && tryCount < 100 && words.length) {
 	let bestGuess = randomWord();
@@ -124,7 +124,7 @@ while (!legend.every((i) => i === 0) && tryCount < 100 && words.length) {
 		console.log(
 			`${getAccuracy(bestGuess, answer)
 				.map((i) => formatOutput(i))
-				.join(" ")} '${bestGuess}' guessed from a possible ${
+				.join(" ")} '${bestGuess.toUpperCase()}' guessed from a possible ${
 				words.length
 			} words`
 		);
@@ -144,8 +144,8 @@ if (isSolved(legend)) {
 	);
 	if (showDefinitions) {
 		console.log(
-			`\n\n\nWant to know what all those guessed words mean?:\n${definitions.join(
-				"\n--------------------------------------\n"
+			`\n\n\nWant to know what all those guessed words mean?:\n\n\n${definitions.join(
+				"\n--------------------------------------\n\n"
 			)}`
 		);
 	}
