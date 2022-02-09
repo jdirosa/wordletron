@@ -51,7 +51,7 @@ function runGame(answer, puzzleId, dryRun = false, firstGuess = "") {
 	if (!dryRun) {
 		printResults(
 			scoreCard,
-			tryCount - 1,
+			tryCount,
 			showDefinitions,
 			allGuesses,
 			answer,
