@@ -1,0 +1,21 @@
+{
+	"name": "wordletron",
+	"version": "1.0.0",
+	"description": "Just a console app that solves wordles for fun. This is just hacking, atm",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jdirosa/wordletron.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/jdirosa/wordletron/issues"
+	},
+	"homepage": "https://github.com/jdirosa/wordletron#readme"
+}
