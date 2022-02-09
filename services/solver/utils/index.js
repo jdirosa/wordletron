@@ -195,3 +195,4 @@ exports.isMatch = isMatch;
 exports.randomWord = randomWord;
 exports.getScoreCard = getScoreCard;
 exports.formatOutput = formatOutput;
+exports.getLetterCount = getLetterCount;

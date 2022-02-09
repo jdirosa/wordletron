@@ -1,8 +1,6 @@
 const { updateLedger } = require("./dal/leger");
+const { parseDictionary } = require("./dal/parser");
+const { runGame } = require("./services/solver");
 
-updateLedger(new Date().setHours(0, 0, 0, 0), 100, [
-	[-1, -1, -1, -1, -1],
-	[-1, -1, -1, -1, -1],
-	[-1, -1, -1, -1, -1],
-	[-1, -1, -1, -1, -1],
-]);
+// runGame("aloof", 232, false);
+// parseDictionary();
