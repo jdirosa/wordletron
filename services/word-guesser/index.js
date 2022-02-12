@@ -1,3 +1,7 @@
+const bestWords = require("../../dal/data/bestWords.json");
+const fs = require("fs");
+const path = require("path");
+
 const { noDuplicateLetters: words } = require("../../dal/data/no-dupes.json");
 const { runGame } = require("../solver");
 const answers = require("../../dal/data/ledger.json").games.map(
@@ -34,8 +38,15 @@ results[0].average = results[0].totalAttempts / (runs * answers.length);
 results[results.length - 1].average =
 	results[results.length - 1].totalAttempts / (runs * answers.length);
 
-console.log({
+const bestWord = {
+	date: new Date(new Date().setHours(0, 0, 0, 0)).toDateString(),
 	runs,
 	bestAnswer: results[0],
 	worstAnswer: results[results.length - 1],
-});
+};
+
+bestWords.bestWords.push(bestWord);
+fs.writeFileSync(
+	path.resolve("/home/james/repos/personal/wordletron/dal/data/bestWords.json"),
+	JSON.stringify(bestWords)
+);

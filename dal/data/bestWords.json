@@ -1,0 +1,18 @@
+{
+	"bestWords": [
+		{
+			"runs": 50,
+			"date": "Sat Feb 12 2022",
+			"bestAnswer": {
+				"word": "fluor",
+				"totalAttempts": 1133,
+				"average": 3.237142857142857
+			},
+			"worstAnswer": {
+				"word": "bower",
+				"totalAttempts": 1860,
+				"average": 5.314285714285714
+			}
+		}
+	]
+}

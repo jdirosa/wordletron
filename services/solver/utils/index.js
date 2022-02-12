@@ -1,6 +1,11 @@
 const dictionary = require("../../../dal/data/dictionary.json");
 const { updateLedger } = require("../../../dal/leger");
+const { bestWords } = require("../../../dal/data/bestWords.json");
 
+/** Retruns the last entry for bestWords */
+function getBestWord() {
+	return bestWords[bestWords.length - 1].bestAnswer.word;
+}
 /** Returns true if the game is solved */
 function isSolved(scoreCard) {
 	return scoreCard.every((i) => i === 0);
@@ -55,7 +60,7 @@ function getLetterCount(word, letter) {
  * @returns
  */
 function formatOutput(input) {
-	return input === 0 ? "[ ✅ ]" : input === 1 ? "[ 👽 ]" : "[ ❌ ]";
+	return input === 0 ? "✅" : input === 1 ? "👽" : "❌";
 }
 
 /**
@@ -130,7 +135,9 @@ function printResults(
 	puzzleId
 ) {
 	if (isSolved(scoreCard)) {
-		log(`\nWORDLETRON solved this successfully after ${attempts} attempts!`);
+		log(
+			`\n🤖 WORDLETRON solved this successfully after ${attempts} attempts!\n`
+		);
 
 		// Print the definitions
 		if (showDefinitions) {
@@ -196,3 +203,4 @@ exports.randomWord = randomWord;
 exports.getScoreCard = getScoreCard;
 exports.formatOutput = formatOutput;
 exports.getLetterCount = getLetterCount;
+exports.getBestWord = getBestWord;
