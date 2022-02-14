@@ -4,5 +4,4 @@ const { runGame } = require("./services/solver");
 const { getBestWord } = require("./services/solver/utils");
 
 const bestWord = getBestWord();
-runGame("ultra", 999, false, bestWord);
-// parseDictionary();
+runGame("cynic", 240, false, bestWord);

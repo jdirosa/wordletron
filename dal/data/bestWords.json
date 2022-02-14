@@ -13,6 +13,16 @@
 				"totalAttempts": 1860,
 				"average": 5.314285714285714
 			}
+		},
+		{
+			"date": "Sun Feb 13 2022",
+			"runs": 50,
+			"bestAnswer": {
+				"word": "fluor",
+				"totalAttempts": 1395,
+				"average": 3.4875
+			},
+			"worstAnswer": { "word": "jakes", "totalAttempts": 2096, "average": 5.24 }
 		}
 	]
 }
