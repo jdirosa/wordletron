@@ -4,9 +4,7 @@ const path = require("path");
 
 const { noDuplicateLetters: words } = require("../../dal/data/no-dupes.json");
 const { runGame } = require("../solver");
-const answers = require("../../dal/data/ledger.json").games.map(
-	(g) => g.answer
-);
+const answers = require("../../dal/data/games").games;
 const runs = 50;
 
 function tryRun(word, answer) {
