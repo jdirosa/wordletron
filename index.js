@@ -7,7 +7,10 @@ const {
 	getPuzzleId,
 } = require("./services/solver/utils");
 
+// get puzzle data
 const bestWord = getBestWord();
 const puzzleId = getPuzzleId();
 const answer = getGameAnswer(puzzleId);
-runGame(answer, puzzleId, false, bestWord);
+const dryRun = false; // used if we don't want to record or print outputs.
+
+runGame(answer, puzzleId, dryRun, bestWord);
