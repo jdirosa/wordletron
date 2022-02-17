@@ -1,6 +1,7 @@
 const dictionary = require("../../../dal/data/dictionary.json");
 const { updateLedger } = require("../../../dal/leger");
 const { bestWords } = require("../../../dal/data/bestWords.json");
+const { games } = require("../../../dal/data/games");
 
 /** Retruns the last entry for bestWords */
 function getBestWord() {
@@ -185,11 +186,23 @@ function saveResults(guesses, answer, puzzleId) {
 	);
 }
 
+/** Given a game number, returns the answer */
+function getGameAnswer(gameNumber) {
+	return games[gameNumber];
+}
+
 function log(message) {
 	const shouldLog = true;
 	if (shouldLog) {
 		console.log(message);
 	}
+}
+
+/** Get today's puzzle number */
+function getPuzzleId() {
+	const startDate = new Date("2021-06-19T04:00:00.000Z");
+	const today = new Date().setHours(0, 0, 0, 0);
+	return Math.round((today - startDate) / (1000 * 60 * 60 * 24));
 }
 
 exports.log = log;
@@ -204,3 +217,5 @@ exports.getScoreCard = getScoreCard;
 exports.formatOutput = formatOutput;
 exports.getLetterCount = getLetterCount;
 exports.getBestWord = getBestWord;
+exports.getGameAnswer = getGameAnswer;
+exports.getPuzzleId = getPuzzleId;

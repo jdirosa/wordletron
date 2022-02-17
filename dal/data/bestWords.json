@@ -23,6 +23,44 @@
 				"average": 3.4875
 			},
 			"worstAnswer": { "word": "jakes", "totalAttempts": 2096, "average": 5.24 }
+		},
+		{
+			"date": "Tue Feb 15 2022",
+			"runs": 50,
+			"bestAnswer": { "word": "fluor", "totalAttempts": 1810, "average": 3.62 },
+			"worstAnswer": {
+				"word": "wiver",
+				"totalAttempts": 2569,
+				"average": 5.138
+			}
+		},
+		{
+			"date": "Wed Feb 16 2022",
+			"runs": 50,
+			"bestAnswer": {
+				"word": "fluor",
+				"totalAttempts": 2071,
+				"average": 3.7654545454545456
+			},
+			"worstAnswer": {
+				"word": "jewry",
+				"totalAttempts": 2809,
+				"average": 5.107272727272727
+			}
+		},
+		{
+			"date": "Thu Feb 17 2022",
+			"runs": 50,
+			"bestAnswer": {
+				"word": "fluor",
+				"totalAttempts": 2348,
+				"average": 3.9133333333333336
+			},
+			"worstAnswer": {
+				"word": "weigh",
+				"totalAttempts": 3075,
+				"average": 5.125
+			}
 		}
 	]
 }

@@ -57,9 +57,7 @@ function runGame(answer, puzzleId, dryRun = false, firstGuess = "") {
 			answer,
 			puzzleId
 		);
-	}
 
-	if (!dryRun) {
 		saveResults(allGuesses, answer, puzzleId);
 	}
 
