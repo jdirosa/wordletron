@@ -33,5 +33,25 @@ function parseDictionary() {
 	// );
 }
 
+function addWord(word) {
+	const fiveLetterWords =
+		require("./data/five-letter-words.json").fiveLetterWords;
+	if (fiveLetterWords.indexOf(word) === -1) {
+		console.log(`Word ${word} not found. Adding to dictionary`);
+		fiveLetterWords.push(word);
+
+		const fiveLetterWOrdsJson = JSON.stringify({
+			fiveLetterWords: fiveLetterWords.sort((a, b) => a.localeCompare(b)),
+		});
+
+		fs.writeFileSync(
+			path.resolve(
+				"/home/james/repos/personal/wordletron/dal/data/five-letter-words.json"
+			),
+			fiveLetterWOrdsJson
+		);
+	}
+}
 parseDictionary();
 exports.parseDictionary = parseDictionary;
+exports.addWord = addWord;

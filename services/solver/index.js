@@ -1,6 +1,7 @@
 const allWords =
 	require("../../dal/data/five-letter-words.json").fiveLetterWords;
 
+const { addWord } = require("../../dal/parser");
 const {
 	isMatch,
 	randomWord,
@@ -17,6 +18,9 @@ const showDefinitions = false;
 const showGuesses = true;
 
 function runGame(answer, puzzleId, dryRun = false, firstGuess = "") {
+	// Add the word if it does not exist
+	addWord(answer);
+
 	let words = [...allWords];
 	// game vars
 	const definitions = [];
